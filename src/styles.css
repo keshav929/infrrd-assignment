@@ -49,3 +49,15 @@ h2 {
 .btn-hollow {
     border: 1px solid #528d5c;
 }
+
+.back-link {
+    color: #528d5c;
+    i {
+        margin-right: 10px;
+    }
+    a {
+        text-decoration: none;
+        color: #528d5c;
+        font-size: 18px;
+    }
+}

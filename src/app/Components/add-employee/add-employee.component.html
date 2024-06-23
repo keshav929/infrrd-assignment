@@ -1,4 +1,8 @@
 
+<div class="back-link">
+    <i class="fa-solid fa-arrow-left"></i>
+    <a [routerLink]="['/']">Dashboard</a>
+</div>
 <div class="add-employee-form-container">
     <ng-container *ngIf="!showLoader && idExists">
         <h2>{{ title }} Employee</h2>

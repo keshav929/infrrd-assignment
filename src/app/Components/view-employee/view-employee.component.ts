@@ -10,7 +10,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-view-employee',
   standalone: true,
-  imports: [ButtonComponent, ConfirmationModalComponent, NgIf],
+  imports: [ButtonComponent, ConfirmationModalComponent, NgIf, RouterModule],
   templateUrl: './view-employee.component.html',
   styleUrl: './view-employee.component.css'
 })
