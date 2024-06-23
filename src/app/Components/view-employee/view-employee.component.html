@@ -1,0 +1,39 @@
+<div class="view-employee-container">
+    <h2>View Employee Data</h2>
+    <div class="avatar">
+        <img [src]="getEmployeeAvatar()" alt="avatar-logo">
+    </div>
+    <div class="employee-data mt-15">
+        <div class="employee-data-label">ID:</div>
+        <div class="employee-data-value">{{ employeeId }}</div>
+    </div>
+    <div class="employee-data ">
+        <div class="employee-data-label">Name:</div>
+        <div class="employee-data-value">{{ employee.name }}</div>
+    </div>
+    <div class="employee-data">
+        <div class="employee-data-label">Designation:</div>
+        <div class="employee-data-value">{{getDesignationValue()}}</div>
+    </div>
+    <div class="employee-data">
+        <div class="employee-data-label">Contact Number:</div>
+        <div class="employee-data-value">{{employee.contactNumber}}</div>
+    </div>
+    <div class="employee-data">
+        <div class="employee-data-label">Email:</div>
+        <div class="employee-data-value">{{employee.email}}</div>
+    </div>
+    <div class="employee-data">
+        <div class="employee-data-label"></div>
+        <div class="employee-data-value"></div>
+    </div>
+
+    <div class="button-container">
+        <app-button name="Edit Employee Data" class="mr-15" classAttribute="btn btn-solid" (clickEvent)="handleEdit($event)"></app-button>    
+
+        <app-button name="Delete Employee Data" classAttribute="btn btn-hollow" (clickEvent)="handleDelete($event)"></app-button>
+</div>
+</div>
+
+
+<app-confirmation-modal *ngIf="showModal" [modalContent]="'Are you sure you want to delete the Employee Data ?'" (triggerConfirm)="handleYes($event)" (triggerCancel)="handleNo($event)"></app-confirmation-modal>

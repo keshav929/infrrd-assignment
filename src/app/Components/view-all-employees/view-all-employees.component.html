@@ -1,0 +1,23 @@
+<div class="view-all-employees-container">
+  <ng-container *ngIf="showLoader">
+    <div class="loader">
+      <img src="../../../assets/img/loader.gif" alt="loader" />
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!showLoader && employeeList?.length == 0">
+    <div class="error-container">
+        No Employee Exist. Go Back to <a [routerLink]="['/add-employee']">Add Employee</a>.
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!showLoader && employeeList.length > 0">
+    <div class="results-container">
+        {{ employeeList.length }} Results Found
+    </div>
+    <div class="employee-items-container">  
+        <div class="employee-item" *ngFor="let employee of employeeList; let i = index" (click)="routeToViewEmployeeDetails(employee.id)">
+            <app-employee-details [employee]="employee"></app-employee-details>
+        </div>
+    </div>
+  </ng-container>
+</div>

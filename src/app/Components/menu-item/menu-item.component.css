@@ -1,0 +1,14 @@
+.nav-item {
+    color: #74af7e;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 25px;
+    padding-left: 10px;
+    cursor: pointer;
+    display: flex;
+    .nav-item-icon {
+        font-size: 20px;
+        margin-right: 5px;
+    }
+}

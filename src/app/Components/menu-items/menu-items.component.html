@@ -1,0 +1,13 @@
+<div class="menu-items-container">
+    <div class="menu-items-top-container">
+        <div class="menu-item" *ngFor="let menuItem of menuItems['TOP']; let i = index">
+            <app-menu-item [menuItem] = "menuItem"></app-menu-item>
+        </div>
+    </div>
+
+    <div class="menu-items-bottom-container">
+        <div class="menu-item" *ngFor="let menuItem of menuItems['BOTTOM']; let i = index">
+            <app-menu-item [menuItem] = "menuItem"></app-menu-item>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="employee-details-container">
+    <div class="employee-profile-container">
+        <div class="employee-avatar-container">
+            <div class="avatar">
+                <img [src]="getEmployeeAvatar()" alt="avatar-logo">
+            </div>
+            <div class="profile">
+                <div class="employee-name">{{ employee.name }}</div>
+                <div class="employee-designation">{{ getDesignationValue() }}</div>
+            </div>
+        </div>
+        <div class="employee-profile-share-container">
+            <span class="icon-container">
+                <i class="fa-solid fa-paper-plane"></i>
+            </span>
+        </div>
+    </div>
+    <div class="employee-rating-container">
+        <div class="rating"></div>
+        <div class="star-rating-container">
+
+        </div>
+    </div>
+    <div class="employee-data-container">
+        <div class="employee-data-row">
+            <div class="employee-data">
+                <div class="employee-data-label">
+                    Experience:  
+                </div>
+                <div class="employee-data-value">{{ employee.experience }} Years</div>
+            </div>
+            <div class="divider">
+                <div></div>
+            </div>
+            <div class="employee-data">
+                <div class="employee-data-label">
+                    Date Of Joining: 
+                </div>
+                <div class="employee-data-value">{{ employee.dateOfJoining }}</div>
+            </div>
+        </div>
+        <div class="employee-data-row">
+            <div class="employee-data-label">
+                Current Team: 
+            </div>
+            <div class="employee-data-value"></div>
+        </div>
+        <div class="employee-data-row">
+            <div class="employee-data-label">
+                Reporting Manager: 
+            </div>
+            <div class="employee-data-value"></div>
+        </div>
+    </div>
+    <div class="employee-contact-container">
+        <div class="contact-container">
+            <span class="icon-container">
+                <i class="fa-solid fa-phone"></i>
+            </span>
+            <span class="phone-number">{{ employee.contactNumber }}</span>
+        </div>
+        <div class="contact-container">
+            <span class="icon-container">
+                <i class="fa-solid fa-envelope"></i>
+            </span>
+            <span class="email">{{ employee.email }}</span>
+        </div>
+    </div>
+</div>

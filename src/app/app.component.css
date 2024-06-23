@@ -1,0 +1,30 @@
+h2 {
+    text-align: center;
+    color: #74af7e;
+}
+.app-container {
+    display: flex;
+   
+    .sidebar-container {
+        width: 200px;
+        border-right: 1px solid #e6e6e6;
+        padding: 30px 25px;
+        background-color: #fefefe;
+        
+    }
+    .body-container {
+        width: calc(100% - 200px);
+        background-color: #f8fcfa;
+        .navbar-container {
+            padding: 15px 30px;
+            border-bottom: 1px solid #e6e6e6;
+            background-color: #ffffff;
+           
+        }
+        .body {
+            padding: 30px;
+            height: calc(100vh - 60px);
+            overflow-y: scroll;
+        }
+    }
+}

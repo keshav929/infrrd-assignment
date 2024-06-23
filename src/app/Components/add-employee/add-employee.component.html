@@ -1,0 +1,117 @@
+
+<div class="add-employee-form-container">
+    <ng-container *ngIf="!showLoader && idExists">
+        <h2>{{ title }} Employee</h2>
+        <form [formGroup]="addEmployee">
+            <div class="form-group-container">
+                <div class="form-field">
+                    <div class="input-container">
+                        <div class="field-label">Employee Name</div>
+                        <input type="text" formControlName="name" />
+                    </div>
+                    <div class="error-container" *ngIf="addEmployee.get('name')?.dirty && addEmployee.get('name')?.errors">
+                        <div *ngIf="addEmployee.get('name')?.errors?.['required']">Employee Name is Required.</div>
+                        <div *ngIf="addEmployee.get('name')?.errors?.['minlength'] || addEmployee.get('name')?.errors?.['maxlength']">Employee Name should be between 3-100 characters.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-container">
+                <div class="form-field">
+                    <div class="input-container">
+                        <div class="field-label">Employee Avatar</div>
+                        <div class="avatar-container">
+                            <div class="avatar-wrapper" *ngFor="let avatarConfig of avatarConfigMap">
+                                <input type="radio" [id]="avatarConfig.id" [value]="avatarConfig.id" [checked]="avatarConfig.id === addEmployee.get('avatar')?.value" formControlName="avatar" >
+ 
+                                <label [for]="avatarConfig.id" class="avatar-label">
+                                    <img [src]="avatarConfig.value" alt="avatar-logo">
+                                 </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="error-container" *ngIf="addEmployee.get('avatar')?.dirty && addEmployee.get('avatar')?.errors">
+                        <div *ngIf="addEmployee.get('avatar')?.errors?.['required']">Employee Avatar is Required.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-container">
+                <div class="form-field">
+                    <div class="input-container">
+                        <div class="field-label">Company Name</div>
+
+                        <input type="text" formControlName="companyName" />
+
+                    </div>
+                    <div class="error-container" *ngIf="addEmployee.get('companyName')?.dirty && addEmployee.get('companyName')?.errors">
+                        <div *ngIf="addEmployee.get('companyName')?.errors?.['required']">Company Name is Required.</div>
+                        <div *ngIf="addEmployee.get('companyName')?.errors?.['minlength'] || addEmployee.get('companyName')?.errors?.['maxlength']">Company Name should be between 3-100 characters.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-container">
+                <div class="form-field">
+                    <div class="input-container">
+                        <div class="field-label">Email</div>
+
+                        <input type="text" formControlName="email" />
+
+                    </div>
+                    <div class="error-container" *ngIf="addEmployee.get('email')?.dirty && addEmployee.get('email')?.errors">
+                        <div *ngIf="addEmployee.get('email')?.errors?.['required']">Email is Required.</div>
+                        <div *ngIf="addEmployee.get('email')?.errors?.['minlength'] || addEmployee.get('email')?.errors?.['maxlength']">Email should be between 3-100 characters.</div>
+                        <div *ngIf="addEmployee.get('email')?.errors?.['pattern']">Invalid Email</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-container">
+                <div class="form-field">
+                    <div class="input-container">
+                        <div class="field-label">Contact Number</div>
+
+                        <input type="text" formControlName="contactNumber" />
+
+                    </div>
+                    <div class="error-container" *ngIf="addEmployee.get('contactNumber')?.dirty && addEmployee.get('contactNumber')?.errors">
+                        <div *ngIf="addEmployee.get('contactNumber')?.errors?.['required']">Contact Number is Required.</div>
+                        <div *ngIf="addEmployee.get('contactNumber')?.errors?.['minlength'] || addEmployee.get('contactNumber')?.errors?.['maxlength']">Contact Number should be between</div>
+                        <div *ngIf="addEmployee.get('contactNumber')?.errors?.['pattern']">Invalid Contact Number</div>                    
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-container">
+                <div class="form-field">
+                    <div class="input-container">
+                        <div class="field-label">Designation</div>
+
+                        <!-- <input type="text" formControlName="designation" /> -->
+                        <select name="designation" formControlName="designation">
+                            <option disabled>Select Designation</option>
+                            <option [value]="desig.id" *ngFor="let desig of designationConfigValues">{{ desig.value }}</option>
+                        </select>
+
+                    </div>
+                    <div class="error-container" *ngIf="addEmployee.get('designation')?.dirty && addEmployee.get('contactNumber')?.errors">
+                        <div *ngIf="addEmployee.get('designation')?.errors?.['required']">Employee Designation is Required.</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="button-container">
+            <app-button name="Cancel" classAttribute="btn btn-hollow" (clickEvent)="handleCancelClick($event)"></app-button>
+            <app-button name="Submit" classAttribute="btn btn-solid" [disabled]="addEmployee.invalid" (clickEvent)="handleSubmitClick($event)"></app-button>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="showLoader">
+        <div class="loader">
+            <img src="../../../assets/img/loader.gif" alt="loader">
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!showLoader && !idExists">
+        <div>
+        Employee with <b>Id: {{ employeeId }}</b> does not exist.
+        Go Back to <a [routerLink]="['/view-all-employees']">View all Employees</a>
+    </div>
+    </ng-container>
+</div>

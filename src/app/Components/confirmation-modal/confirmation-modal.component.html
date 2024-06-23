@@ -1,0 +1,14 @@
+<div class="confirmation-modal-container">
+    <div class="confirmation-modal">
+        <div class="header">
+
+        </div>
+        <div class="content">
+            {{ modalContent }}
+        </div>
+        <div class="action">
+            <app-button name="Yes" class="mr-15" classAttribute="btn btn-solid" (clickEvent)="handleYes($event)"></app-button>
+            <app-button name="Cancel" classAttribute="btn btn-hollow" (clickEvent)="handleCancel($event)"></app-button>    
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.view-employee-container{
+    text-align: center;
+    .avatar {
+        width: 200px;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    .employee-data {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+
+        .employee-data-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #999999;
+        }
+        .employee-data-value {
+            margin-left: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333333;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<div class="navbar">
+    <div class="navbar-wrapper">
+        <div class="left-container">
+
+        </div>
+        <div class="right-container">
+            <span class="notification-icon" (click)="showNotifications()">
+                <i class="fa-regular fa-bell"></i>
+            </span>
+        </div>
+    </div>
+    <div class="notification-modal" *ngIf="openNotificationsModal">
+        <div class="no-notifications-container">
+            No New Notification 
+        </div>
+    </div>
+</div>
